@@ -6,9 +6,10 @@ Para rodar esse projeto voce precisa usar os requisistos que estarao dentro do a
 ```
 $ virtualenv -p python3 env
 ```
+```
 $ pp3 install -r requirements.txt
 ```
-
+```
 ```
 $ flask run
 ```

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5> Curso Python 4 Sysadmin</h5>
+    <p>521 - 4Linux</p>
+    {# Mostrar mensagens #}
+    {{ pessoas }}
+    </br>
+    {# fazer processamento #}
+    {% for pessoa in pessoas %}
+        {{ pessoa }}
+    </br>
+    {% endfor %}
+    {# comentario do jinja #}
+    <!-- Comentario do html -->
+    (# Rodape da pagina #)
+    {% block footer %}
+    {% endblock %}
+</body>
+
+</html>

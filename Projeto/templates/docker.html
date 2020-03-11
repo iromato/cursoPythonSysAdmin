@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="panel-body">
+    <ul class="list-group">
+        <li class="list-group-item">ID: {{ container.id }}</li>
+    </ul>
+    <ul class="list-group">
+            <li class="list-group-item">Nome: {{ container.nome }}</li>
+        </ul>
+    <ul class="list-group">
+        <li class="list-group-item">Imagem: {{ container.imagem }}</li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">Status: {{ container.status }}</li>
+    </ul>
+
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            {% if container.status == 'running' %}
+            <a href="/docker/stop" class="btn btn-danger">Parar</a>
+            <a href="/docker/start" class="btn btn-success">Reiniciar</a>
+            {% else %}
+            <a href="/docker/start" class="btn btn-success">Iniciar</a>
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

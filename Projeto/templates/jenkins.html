@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nome do Job</th>
+            <th>Estado</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.fullName }}</td>
+            <td>
+                {% if not job.firstBuild %}
+                Nunca foi construido
+                {% elif job.lastSuccessfulBuild.number == job.nextBuildNumber - 1 %}
+                Sucesso
+                {% else %}
+                Falha Na Construção
+                {% endif %}
+            </td>
+            <td>
+                <a href="/jenkins/build/{{ job.fullName }}">Build</a>
+                <a href="/jenkins/update/{{ job.fullName }}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

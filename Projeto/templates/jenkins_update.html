@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<form action="/jenkins/rebuild" method="post">
+    <input type="hidden" name="name" value="{{ job_name }}">
+    <textarea name="xml" rows="16" class="form-control">{{ job.xml }}</textarea>
+    <br>
+    <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+</form>
+{% endblock %}

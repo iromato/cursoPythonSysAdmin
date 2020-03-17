@@ -14,41 +14,41 @@ client.bind()
 print(client)
 
 #inserindo um usuario
-md5json = md5('admin'.encode('utf-8')).digest()
+md5json = md5('!23mudar'.encode('utf-8')).digest()
 
 user = {
-        'cn':'roberto',
+        'cn':'Renato',
         'sn':'silva',
-        'mail':'betaosil@aol.com',
+        'mail':'renato.mori@aol.com',
         'uidNumber':'1000',
         'gidNumber':'1000',
-        'uid':'betao.silva',
-        'homeDirectory':'/home/betao',
+        'uid':'renato.silva',
+        'homeDirectory':'/home/renato',
         'userPassword':'{MD5}' + b2a_base64(md5json).decode('utf-8')
 
         }
 
 objectClass = ['top','person','organizationalPerson','inetOrgPerson','posixAccount']
 
-#print(client.add(
-#    f'uid={user["uid"]},dc=example,dc=org',
-#    objectClass,
-#    user,
-#    ))
+print(client.add(
+   f'uid={user["uid"]},dc=example,dc=org',
+   objectClass,
+   user,
+   ))
 
 dn = f'uid={user["uid"]},dc=example,dc=org'
-#pesquisar
-client.search(dn,'(objectclass=person)',attributes=['cn','mail','sn'])
-print(client.entries)
-#alterar
-changes = {
-            'mail':[(ldap3.MODIFY_REPLACE,['xuxa@meneguel.com'])]
-          }
+# #pesquisar
+# client.search(dn,'(objectclass=person)',attributes=['cn','mail','sn'])
+# print(client.entries)
+# #alterar
+# changes = {
+#             'mail':[(ldap3.MODIFY_REPLACE,['xuxa@meneguel.com'])]
+#           }
 
-#client.modify(dn,changes)
+# #client.modify(dn,changes)
 
-print(client.result)
+# print(client.result)
 
 
-#deletar registro
-print(client.delete(dn))
+# #deletar registro
+# print(client.delete(dn))
